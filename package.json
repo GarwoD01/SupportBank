@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/GarwoD01/SupportBank#readme",
   "dependencies": {
+    "csv-parse": "^5.3.0",
     "moment": "^2.29.4",
     "readline-sync": "^1.4.10"
   }
