@@ -1,5 +1,6 @@
 import fs from "fs";
 import { parse } from 'csv-parse';
+import Transaction from "./transaction.js";
 
 const data = [];
 
@@ -25,14 +26,6 @@ fs.createReadStream("Transactions2014.csv")
     let transactions = new Transaction(data[0].Date, data[0].From, data[0].To, data[0].Narrative, data[0].Amount);
     console.log(transactions.date);
   });
-
-function Transaction(date, from, to, narrative, amount) {
-  this.date = date;
-  this.from_person = from;
-  this.to_person = to;
-  this.context = narrative;
-  this.amount = amount;
-}
 
 import readline from 'readline-sync';
 
