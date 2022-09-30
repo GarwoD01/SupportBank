@@ -30,6 +30,7 @@ function listAllAccounts(bank) {
 if (response == "List Account") {
   console.log('Please enter Account Name: ');
   const name_response = readline.prompt();
+  //change this later
   for (let i = 0; i < transaction.length; i++){
     if (transaction[i].to_person == (name_response) || transaction[i].from_person == (name_response)){
       console.log(transaction[i]);
