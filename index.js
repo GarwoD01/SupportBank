@@ -1,5 +1,4 @@
 import readline from 'readline-sync';
-
 import getTransactions from './csvreader.js';
 import Account from './account.js';
 import Bank from './bank.js';
@@ -19,22 +18,28 @@ if (response == "List All") {
     listAllAccounts(bank);
 }
 
+if (response == "List Account") {
+  console.log('Please enter Account Name: ');
+  const name_response = readline.prompt();
+  listOneAccount(name_response,bank);
+}
+
 function listAllAccounts(bank) {
     console.log('\nAll accounts:');
     Object.values(bank.accounts).forEach( function(oneAccount){
-        console.log(`Account Name: ${oneAccount.owner} Balance: ${oneAccount.balance}`);
+        console.log(`Account Name: ${oneAccount.owner}/nBalance: ${oneAccount.balance}`);
         // *** amend the output above to include the account balance
     });
 }
 
-if (response == "List Account") {
-  console.log('Please enter Account Name: ');
-  const name_response = readline.prompt();
-  //change this later
-  for (let i = 0; i < transaction.length; i++){
-    if (transaction[i].to_person == (name_response) || transaction[i].from_person == (name_response)){
-      console.log(transaction[i]);
+function listOneAccount(owner, bank) {
+    const account = bank.accounts[owner];
+    if (account !== undefined) {
+        // Get the transactions sorted in date order
+        console.log(`\nAccount ${owner}: *** NOT IMPLEMENTED ***`);
+        console.log(account.incomingTransactions);
+        console.log(account.outgoingTransactions);
+    } else {
+        console.log(`\nThere is no account known in the name of ${owner}`);
     }
 }
-}
-
